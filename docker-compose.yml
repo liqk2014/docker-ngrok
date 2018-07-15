@@ -1,5 +1,5 @@
 server:
-  image: liqk/ngrok
+  image: liqk1989/ngrok
   ports:
     - "8080:80"
     - "8081:443"
