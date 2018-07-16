@@ -1,12 +1,12 @@
 server:
   image: liqk1989/ngrok
   ports:
-    - "8080:80"
-    - "8081:443"
+    - "8080:8080"
+    - "8081:8081"
     - "4443:4443"
   volumes:
     - ~/docker-ngrok/out:/myfiles
   environment:
-    - DOMAIN="liqk.xyz"
+    - DOMAIN=svod.app
   command: /bin/sh /server.sh
   container_name: ngrok-server
