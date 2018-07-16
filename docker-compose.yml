@@ -8,5 +8,8 @@ server:
     - ~/docker-ngrok/out:/myfiles
   environment:
     - DOMAIN=svod.app
+    - TUNNEL_ADDR=:4443
+    - HTTP_ADDR=:8080
+    - HTTPS_ADD=:8081
   command: /bin/sh /server.sh
   container_name: ngrok-server
