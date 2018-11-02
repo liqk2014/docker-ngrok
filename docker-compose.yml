@@ -2,14 +2,14 @@ server:
   image: liqk1989/ngrok
   ports:
     - "8080:8080"
-    - "8081:8081"
+    - "8082:8082"
     - "4443:4443"
   volumes:
-    - ~/docker-ngrok/out:/myfiles
+    - ~/docker-ngrok/out:/
   environment:
     - DOMAIN=svod.app
     - TUNNEL_ADDR=:4443
     - HTTP_ADDR=:8080
-    - HTTPS_ADDR=:8081
+    - HTTPS_ADDR=:8082
   command: /bin/sh /server.sh
   container_name: ngrok-server

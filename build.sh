@@ -1,4 +1,4 @@
-#!/bin/sh
+	#!/bin/sh
 set -e
 
 if [ "${DOMAIN}" == "**None**" ]; then
@@ -17,15 +17,18 @@ fi
 cp -r base.pem /ngrok/assets/client/tls/ngrokroot.crt
 
 cd /ngrok
-make release-server
-GOOS=linux GOARCH=386 make release-client
-GOOS=linux GOARCH=amd64 make release-client
-GOOS=windows GOARCH=386 make release-client
-GOOS=windows GOARCH=amd64 make release-client
-GOOS=darwin GOARCH=386 make release-client
-GOOS=darwin GOARCH=amd64 make release-client
-GOOS=linux GOARCH=arm make release-client
+make server
+GOOS=linux GOARCH=386 make client
+GOOS=linux GOARCH=amd64 make client
+GOOS=windows GOARCH=386 make client
+GOOS=windows GOARCH=amd64 make client
+GOOS=darwin GOARCH=386 make client
+GOOS=darwin GOARCH=amd64 make client
+GOOS=linux GOARCH=arm make client
 
 cp -r /ngrok/bin ${MY_FILES}/bin
+
+cp /build.sh ${MY_FILES}
+cp /server.sh ${MY_FILES}
 
 echo "build ok !"
